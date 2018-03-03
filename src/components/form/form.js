@@ -43,7 +43,9 @@ export class Form {
 
 	_createForm() {
 		return `<div class="${this.blockName}__form">
-		<p>Добавить элемент ${this.targetMenuTitle ? '<mark>в&nbsp;"<i>' + this.targetMenuTitle + '</i>"</mark>' : ""}</p>
+		<p>Добавить элемент ${
+			this.targetMenuTitle ? '<mark>в&nbsp;"<i>' + this.targetMenuTitle + '</i>"</mark>' : ""
+		}</p>
 		<input type="text" name="name" placeholder="Название" value="" class="form-text">
 		<input type="text" name="url" placeholder="http://.." value="" class="form-text">
 		<button class="${this.blockName}__button ${this.blockName}__button_submit">добавить</button>
