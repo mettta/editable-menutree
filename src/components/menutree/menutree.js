@@ -15,12 +15,12 @@ export class Menutree {
 	}
 
 	addElement(el, address) {
-		this._tree.addNode(el, address, this._tree.getData());
+		this._tree.addNode(el, address);
 	}
 
 	removeElement(el) {
 		const address = this.getElementAddress(el);
-		this._tree.removeNode(address, this._tree.getData());
+		this._tree.removeNode(address);
 		this.render();
 	}
 
@@ -32,7 +32,7 @@ export class Menutree {
 
 	_toggleOpenStatus(element) {
 		element.classList.toggle(`${this.blockName}__section_title_open`);
-		let node = this._tree.getNode(this.getElementAddress(element), this._tree.getData())
+		let node = this._tree.getNode(this.getElementAddress(element));
 		let state = node.state;
 		node.state = state ? '' : 'open';
 	}

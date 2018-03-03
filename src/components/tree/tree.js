@@ -14,12 +14,12 @@ export class Tree {
 		return address[address.length - 1];
 	}
   
-	getNode(address, tree) {
-		return this.getParentNode(address, tree)[this.getNodeIdx(address)];
+	getNode(address) {
+		return this.getParentNode(address)[this.getNodeIdx(address)];
 	}
   
-	getParentNode(address, tree) {
-		let parentNode = tree;
+	getParentNode(address) {
+		let parentNode = this._data;
 		if (address) {
 			for(let i = 0; i < address.length - 1; i++) {
 				parentNode = parentNode[+address[i]].children;
@@ -28,18 +28,18 @@ export class Tree {
 		return parentNode;
 	}
   
-	getChildren(address, tree) {
-		return address ? this.getNode(address, tree).children : tree;
+	getChildren(address) {
+		return address ? this.getNode(address).children : this._data;
 	}
   
-	addNode(el, address, tree) {
+	addNode(el, address) {
 		if(!address) { 
-			tree.push(el);
+			this._data.push(el);
 			return;
 		}
 	
-		const children = this.getChildren(address, tree);
-		const parent = this.getNode(address, tree);
+		const children = this.getChildren(address);
+		const parent = this.getNode(address);
 		
 		if(!children) { 
 			parent.children = [el];
@@ -53,9 +53,9 @@ export class Tree {
 	}
   
 	// todo: после удаления элемента делать reset форме.
-	removeNode(address, tree) {
+	removeNode(address) {
 		const idx = this.getNodeIdx(address);
-		const arr = this.getParentNode(address, tree);
+		const arr = this.getParentNode(address);
 		arr.splice(idx, 1);
 	}
   
