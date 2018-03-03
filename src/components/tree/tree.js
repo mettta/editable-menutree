@@ -9,15 +9,15 @@ export class Tree {
 	getData() {
 		return this._data;
 	}
-	
+
 	getNodeIdx(address) {
 		return address[address.length - 1];
 	}
-  
+
 	getNode(address) {
 		return this.getParentNode(address)[this.getNodeIdx(address)];
 	}
-  
+
 	getParentNode(address) {
 		let parentNode = this._data;
 		if (address) {
@@ -27,60 +27,36 @@ export class Tree {
 		}
 		return parentNode;
 	}
-  
+
 	getChildren(address) {
 		return address ? this.getNode(address).children : this._data;
 	}
-  
+
 	addNode(el, address) {
 		if(!address) { 
 			this._data.push(el);
 			return;
 		}
-	
+
 		const children = this.getChildren(address);
 		const parent = this.getNode(address);
-		
+
 		if(!children) { 
 			parent.children = [el];
 		} else {
 			children.push(el);
 		}
-		
+
 		if(parent) {
 			parent.state = 'open';
 		}
 	}
-  
+
 	// todo: после удаления элемента делать reset форме.
 	removeNode(address) {
 		const idx = this.getNodeIdx(address);
 		const arr = this.getParentNode(address);
 		arr.splice(idx, 1);
-	}
-  
-	// enumeration test ////////////////////////////////////////////////////
-  
-	enumerate(callback) {
-		let data = this._data;
-		this._enumerate(data, 0, callback);
-	}
-  
-	_enumerate(data, level, callback) {
-		data.forEach((item, idx) => {
-			if(callback) {
-				callback(item, idx, level);
-			}
-			if(item.children) {
-				this._enumerate(item.children, level + 1, callback);
-			}
-		});
-	}
-  
-	dump() {
-		this.enumerate(function(item, level){
-			console.log('-->' + level + '**' + item.name);
-		}); 
 	}
 }
 

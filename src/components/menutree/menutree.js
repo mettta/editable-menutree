@@ -40,17 +40,17 @@ export class Menutree {
 	_initEvents() {
 		this.el.addEventListener('click', () => {
 			let element = event.target;
-		  
+
 			if (element.classList.contains(`${this.blockName}__section_title`)) {
 				this._toggleOpenStatus(element);
 				console.log(element);
 			}
-			
+
 			if (element.classList.contains(`${this.blockName}__item_del`)) {
 				this.removeElement(element);
 				console.log(element);
 			}
-			
+
 			if (element.classList.contains(`${this.blockName}__item_add`)) {
 				this.onItemEvent({
 				title: element.parentNode.querySelector(`.${this.blockName}__title`).textContent,
@@ -68,28 +68,28 @@ export class Menutree {
 		${data.map( (obj, idx) => this._createItem(obj, idx, parentIdx)).join('')}
 		<li class="${this.blockName}__placeholder">Ваш список пуст</li></ul>`;
 	}
-	  
+
 	_createItem(obj, idx, parentIdx) {
 		if (!obj.name) return;
 		const dataIdx = parentIdx ? parentIdx + '.' + idx : parentIdx + idx;
 		const urlOrTitle = obj.url ? this._createLink(obj) : this._createTitle(obj);
 		const sectionOrNil = obj.children ? this._createList(obj.children, dataIdx) : "";
 		const content = urlOrTitle + sectionOrNil;
-	  
+
 		const html = 
-		  `<li data-idx="${dataIdx}" class="${this.blockName}__item">
-			   <span class="${this.blockName}__item_del">&times;</span>
-			   ${content}
-		   </li>`;
-				  
+		`<li data-idx="${dataIdx}" class="${this.blockName}__item">
+			<span class="${this.blockName}__item_del">&times;</span>
+			${content}
+		</li>`;
+
 		return html;
 	}
-	  
+
 	_createLink(obj) {
 		return `<a href="${obj.url}" class="${this.blockName}__link" target="_blank">${
 				obj.name}</a>`
 	}
-	  
+
 	_createTitle(obj) {
 		return `<span class="${this.blockName}__item_add">&plus;</span><span class="${
 				this.blockName}__title ${
