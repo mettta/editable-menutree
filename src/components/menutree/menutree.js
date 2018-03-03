@@ -47,7 +47,6 @@ export class Menutree {
 
 			if (element.classList.contains(`${this.blockName}__section_title`)) {
 				this._toggleOpenStatus(element);
-				console.log(element);
 			}
 
 			if (element.classList.contains(`${this.blockName}__item_del`)) {

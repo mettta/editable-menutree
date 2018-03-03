@@ -25,7 +25,6 @@ export class Form {
 	}
 
 	update(element) {
-		console.log(element);
 		if(element) {
 			this._setTarget(element);
 			this.render();

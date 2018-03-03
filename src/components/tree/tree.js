@@ -52,7 +52,6 @@ export class Tree {
 		}
 	}
 
-	// todo: после удаления элемента делать reset форме.
 	removeNode(address) {
 		const idx = this.getNodeIdx(address);
 		const arr = this.getParentNode(address);
