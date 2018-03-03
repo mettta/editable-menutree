@@ -14,28 +14,29 @@ export class Menutree {
 		this.el.innerHTML = this._createList(this._tree.getData());
 	}
 
-	_addElementToTree(el, address) {
-		this._tree.addNode(el, address);
-	}
-
 	addElement(el, address) {
 		this._addElementToTree(el, address);
 		this.render();
 	}
+
 	removeElement(el) {
-		this._tree.removeNode(this.getElementAddress(el));
+		this._tree.removeNode(this._getElementAddress(el));
 		this.render();
 	}
 
-	getElementAddress(el) {
+	_getElementAddress(el) {
 		let elemIdx = el.parentNode.dataset.idx;
 		const address = elemIdx ? elemIdx.split('.') : [];
 		return address;
 	}
 
+	_addElementToTree(el, address) {
+		this._tree.addNode(el, address);
+	}
+
 	_toggleOpenStatus(el) {
 		el.classList.toggle(`${this.blockName}__section_title_open`);
-		let node = this._tree.getNode(this.getElementAddress(el));
+		let node = this._tree.getNode(this._getElementAddress(el));
 		let state = node.state;
 		node.state = state ? '' : 'open';
 	}
@@ -57,9 +58,8 @@ export class Menutree {
 			if (element.classList.contains(`${this.blockName}__item_add`)) {
 				this.onItemEvent({
 				title: element.parentNode.querySelector(`.${this.blockName}__title`).textContent,
-				address: this.getElementAddress(element)
+				address: this._getElementAddress(element)
 				});
-				console.log(element);
 			}
 		});
 	}
