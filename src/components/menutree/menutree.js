@@ -52,7 +52,7 @@ export class Menutree {
 
 			if (element.classList.contains(`${this.blockName}__item_del`)) {
 				this.removeElement(element);
-				console.log(element);
+				this.onItemEvent(null);
 			}
 
 			if (element.classList.contains(`${this.blockName}__item_add`)) {

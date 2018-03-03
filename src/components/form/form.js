@@ -18,17 +18,28 @@ export class Form {
 		this.el.innerHTML = this._createForm();
 	}
 
-	setTarget(element) {
-		this._setTarget(element);
+	reset() {
+		this.targetMenuTitle = null;
+		this.targetMenuAddress = null;
 		this.render();
 	}
+
+	update(element) {
+		console.log(element);
+		if(element) {
+			this._setTarget(element);
+			this.render();
+		} else {
+			this.reset();
+		}
+	}
+
+	// private
 
 	_setTarget(element) {
 		this.targetMenuTitle = element.title;
 		this.targetMenuAddress = element.address;
 	}
-
-	// private
 
 	_createForm() {
 		return `<div class="${this.blockName}__form">
@@ -52,8 +63,6 @@ export class Form {
 	
 	_onSendData(el) {
 		this.onSendData(el, this.targetMenuAddress);
-		this.targetMenuTitle = null;
-		this.targetMenuAddress = null;
-		this.render();
+		this.reset();
 	}
 }

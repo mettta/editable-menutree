@@ -15,7 +15,7 @@ export class App {
 			el: document.createElement('div'),
 			tree: tree, 
 			onItemEvent: (element) => {
-				form.setTarget(element);
+				form.update(element);
 			}
 		});
 
