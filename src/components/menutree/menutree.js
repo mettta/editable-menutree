@@ -30,9 +30,9 @@ export class Menutree {
 		return address;
 	}
 
-	_toggleOpenStatus(element) {
-		element.classList.toggle(`${this.blockName}__section_title_open`);
-		let node = this._tree.getNode(this.getElementAddress(element));
+	_toggleOpenStatus(el) {
+		el.classList.toggle(`${this.blockName}__section_title_open`);
+		let node = this._tree.getNode(this.getElementAddress(el));
 		let state = node.state;
 		node.state = state ? '' : 'open';
 	}
