@@ -31,6 +31,5 @@ export class App {
 		this.el.append(menutree.el, form.el);
 		menutree.render();
 		form.render();
-		// здесь будем использовать Form, Chat
 	}
 }
