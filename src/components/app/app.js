@@ -15,8 +15,7 @@ export class App {
 			el: document.createElement('div'),
 			tree: tree, 
 			onItemEvent: (element) => {
-				form.printTarget(element);
-				form.render();
+				form.setTarget(element);
 			}
 		});
 
@@ -24,7 +23,6 @@ export class App {
 			el: document.createElement('div'),
 			onSendData: (element, address) => {
 				menutree.addElement(element, address);
-				menutree.render();
 			},
 		});
 

@@ -18,7 +18,12 @@ export class Form {
 		this.el.innerHTML = this._createForm();
 	}
 
-	printTarget(element) {
+	setTarget(element) {
+		this._setTarget(element);
+		this.render();
+	}
+
+	_setTarget(element) {
 		this.targetMenuTitle = element.title;
 		this.targetMenuAddress = element.address;
 	}

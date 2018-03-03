@@ -14,13 +14,16 @@ export class Menutree {
 		this.el.innerHTML = this._createList(this._tree.getData());
 	}
 
-	addElement(el, address) {
+	_addElementToTree(el, address) {
 		this._tree.addNode(el, address);
 	}
 
+	addElement(el, address) {
+		this._addElementToTree(el, address);
+		this.render();
+	}
 	removeElement(el) {
-		const address = this.getElementAddress(el);
-		this._tree.removeNode(address);
+		this._tree.removeNode(this.getElementAddress(el));
 		this.render();
 	}
 
