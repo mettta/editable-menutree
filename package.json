@@ -1,0 +1,15 @@
+{
+  "name": "editable Tree (looks like Menu)",
+  "version": "0.0.6",
+  "description": "Редактируемое дерево",
+  "main": "index.html",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mettta/###########"
+  },
+  "author": "Maryna Balioura",
+  "license": "MIT",
+  "homepage": "",
+  "devDependencies": {}
+}

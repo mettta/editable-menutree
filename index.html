@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Редактируемый список</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="src/style.css">
+	<link rel="stylesheet" href="src/components/form/form.css">
+	<link rel="stylesheet" href="src/components/menutree/menutree.css">
+</head>
+<body>
+	<h1>Редактируемый список<br>в виде дерева</h1>
+	<div class="js-app"></div>
+
+	<script>
+		const MENU_ITEMS = [
+			{
+				name: 'Сладости',
+				state: 'open',
+				children: [
+					{
+						name: "Пирог",
+						url: "https://learn.javascript.ru/task/sliding-menu"
+					},
+					{
+						name:"Пончик",
+						url: "https://learn.javascript.ru/task/sliding-menu"
+					},
+					{
+						name: "Мед",
+						url: "https://learn.javascript.ru/task/sliding-menu"
+					},
+					{
+						name: "Конфетки",
+						state: '',
+						children: [
+							{
+								name: "Батончик",
+								url: "https://learn.javascript.ru/task/sliding-menu"
+							},
+							{
+								name: "Турончик",
+								url: "https://learn.javascript.ru/task/sliding-menu"
+							},
+							{
+								name: "Мишка на Севере",
+								url:"https://learn.javascript.ru/task/sliding-menu"
+							},
+							{
+								name: "Конфетки",
+								state: '',
+								children: [
+									{
+										name: "Батончик",
+										url: "https://learn.javascript.ru/task/sliding-menu"
+									},
+									{
+										name: "Турончик",
+										url: "https://learn.javascript.ru/task/sliding-menu"
+									},
+									{
+										name: "Мишка на Севере",
+										url:"https://learn.javascript.ru/task/sliding-menu"
+									}
+								]
+							}
+						]
+					},
+					{
+						name: "Без вложений",
+						url: "#####"
+					}
+				]
+			},
+			{
+				name: 'Солености',
+				children: [
+					{
+						name: "Огурчик",
+						url: "https://learn.javascript.ru/task/sliding-menu"
+					},
+					{
+						name: "Помидорчик",
+						url: "https://learn.javascript.ru/task/sliding-menu"
+					},
+					{
+						name: "Перчик",
+						url: "https://learn.javascript.ru/task/sliding-menu"
+					}
+				]
+			},
+			{
+				name: "Квашеный арбуз",
+				url:"https://learn.javascript.ru/task/sliding-menu"
+			},
+			{
+				name: "Выпивка"
+			},
+			{
+				name: "Закуска", url: ""
+			},
+			{
+				name: ""
+			},
+			{}
+		];
+	</script>
+
+	<script type="module">
+		import {App} from './src/components/app/app.js';
+
+		new App({
+			data: MENU_ITEMS,
+			el: document.querySelector('.js-app')
+		});
+	</script>
+</body>
+</html>
