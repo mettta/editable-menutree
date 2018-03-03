@@ -6,10 +6,10 @@
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mettta/###########"
+    "url": "git+https://github.com/mettta/editable-menutree"
   },
   "author": "Maryna Balioura",
-  "license": "MIT",
+  "license": "",
   "homepage": "",
   "devDependencies": {}
 }
