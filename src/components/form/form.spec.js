@@ -16,7 +16,7 @@ let Instance = new Module({
 describe("Form", function() {
 	describe("Form. Formal tests", function() {
 
-		it('Form should be an function', function() {
+		it('Form should be a function', function() {
 			expect(Module).to.be.an('function');
 		});
 	
@@ -28,25 +28,21 @@ describe("Form", function() {
 			expect(Instance).to.have.property('el');
 		});
 
+		it('Instance.el should be a HTML Element', function() {
+			expect(Instance.el).to.be.an.instanceof(Object);
+			expect(Instance.el).to.be.an.instanceof(HTMLElement);
+		});
+
 		it('Instance should contains onSendData property', function() {
 			expect(Instance).to.have.property('onSendData');
 		});
 
-		it('onSendData should be an function', function() {
+		it('Instance.onSendData should be a function', function() {
 			expect(Instance.onSendData).to.be.an('function');
 		});
 
 		it('Instance should contains render() function', function() {
 			expect(Instance).to.have.property('render').an('function');
 		});
-		
-		it('el exists -------- TODO -------', function() {
-			// console.log(Instance.el);
-			// console.log(typeof Instance.el);
-			
-			// expect(Instance.el).to.be.an.instanceof('object');
-			// expect(Instance.el).to.be.an('object');
-		});
-
 	});
 });
