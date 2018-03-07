@@ -28,7 +28,7 @@ describe("Tree", function() {
 
 	describe("Tree. Formal tests", function() {
 
-		it('Tree should be an function', function() {
+		it('Tree should be a function', function() {
 			expect(Module).to.be.an('function');
 		});
 	
