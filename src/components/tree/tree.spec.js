@@ -360,7 +360,6 @@ describe("Tree", function() {
 		it("For address = [0, 0, 0] removes node", function() {
 			let tree = new Module({ data: data });
 			tree.removeNode([0, 0, 0]);
-			console.log(data);
 			expect(data).to.deep.equal(newDataState);
 		});
 	});
