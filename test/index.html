@@ -5,104 +5,19 @@
 	<meta charset="utf-8">
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.js"></script>
-	<script>
-		mocha.setup('bdd');
-	</script>
-
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/chai/2.0.0/chai.js"></script>
+    <script defer src="//cdnjs.cloudflare.com/ajax/libs/mocha/3.4.1/mocha.min.js"></script>
+    <script defer src="//cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.min.js"></script>
+    <script type="module">mocha.setup('bdd')</script>
+    <script type="module" src="./test.js"></script>
+    <script type="module">mocha.run()</script>
 	<!-- выносим assert в глобальную область -->
 	<script>
-		var assert = chai.assert;
+		// var assert = chai.assert;
 	</script>
 </head>
 
 <body>
-	<!-- <script type="module" src="./../src/components/tree/tree.js"></script> -->
-	<!-- <script type="module" src="./../src/components/menutree/menutree.js"></script> -->
-	<!-- <script type="module" src="./../src/components/form/form.js"></script> -->
-
-	<div class="js-app"></div>
-
-	<!-- <script type="module">
-		import {Tree} from './../src/components/tree/tree.js';
-	</script> -->
-
-	<!-- <script type="module" src="./../src/components/tree/tree.js"></script> -->
-
-	<script>
-
-		class Tree {
-
-			constructor({data}) {
-				this._data = data;
-			}
-
-			getData() {
-				return this._data;
-			}
-
-			getNodeIdx(address) {
-				return address[address.length - 1];
-			}
-
-			getNode(address) {
-				return this.getParentNode(address)[this.getNodeIdx(address)];
-			}
-
-			getParentNode(address) {
-				let parentNode = this._data;
-				if (address) {
-					for(let i = 0; i < address.length - 1; i++) {
-						parentNode = parentNode[+address[i]].children;
-					}
-				}
-				return parentNode;
-			}
-
-			getChildren(address) {
-				return address ? this.getNode(address).children : this._data;
-			}
-
-			addNode(el, address) {
-				if(!address) { 
-					this._data.push(el);
-					return;
-				}
-
-				const children = this.getChildren(address);
-				const parent = this.getNode(address);
-
-				if(!children) { 
-					parent.children = [el];
-				} else {
-					children.push(el);
-				}
-
-				if(parent) {
-					parent.state = 'open';
-				}
-			}
-
-			removeNode(address) {
-				const idx = this.getNodeIdx(address);
-				const arr = this.getParentNode(address);
-				arr.splice(idx, 1);
-			}
-		}
-
-		const tree = new Tree({
-			data: []
-		});
-
-
-	</script>
-
-	<script src="test.js"></script>
 	<div id="mocha"></div>
-	<script>
-		mocha.run();
-	</script>
 </body>
 
 </html>
