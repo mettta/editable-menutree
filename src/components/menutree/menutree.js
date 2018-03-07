@@ -37,6 +37,7 @@ export class Menutree {
 	_toggleOpenStatus(el) {
 		el.classList.toggle(`${this.blockName}__section_title_open`);
 		let node = this._tree.getNode(this._getElementAddress(el));
+		// TODO: -------------- проверка на ноду
 		let state = node.state;
 		node.state = state ? '' : 'open';
 	}

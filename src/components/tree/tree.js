@@ -11,11 +11,13 @@ export class Tree {
 	}
 
 	getNodeIdx(address) {
-		return address[address.length - 1];
+		return (address && address.length) ? 
+		address[address.length - 1] : undefined;
 	}
 
 	getNode(address) {
-		return this.getParentNode(address)[this.getNodeIdx(address)];
+		return (address && address.length) ? 
+		this.getParentNode(address)[this.getNodeIdx(address)] : undefined;
 	}
 
 	getParentNode(address) {
@@ -29,10 +31,13 @@ export class Tree {
 	}
 
 	getChildren(address) {
-		return address ? this.getNode(address).children : this._data;
+		return (address && address.length) ? 
+		this.getNode(address).children : this._data;
 	}
 
 	addNode(el, address) {
+		if(!el || !el.name) { return; }
+
 		if(!address) { 
 			this._data.push(el);
 			return;
@@ -53,6 +58,7 @@ export class Tree {
 	}
 
 	removeNode(address) {
+		if(!address || !address.length) { return; }
 		const idx = this.getNodeIdx(address);
 		const arr = this.getParentNode(address);
 		arr.splice(idx, 1);
