@@ -70,31 +70,34 @@ describe("Form", function() {
 		});
 	});
 
-	// describe("Form._onSendData(el)", function() {
+	describe("Form._onSendData(el)", function() {
 
-	// 	before(function() {
-	// 		Instance.targetAddress = [];
-	// 	});
+		before(function() {
+			Instance.targetAddress = [];
+		});
 
-	// 	after(function() {
-	// 		Instance.targetAddress = null;
-	// 	});
+		after(function() {
+			Instance.targetAddress = null;
+		});
 
-	// 	const resivedElement = {
-	// 		title: 'Title',
-	// 		address: [0,0,0]
-	// 	};
+		const resivedElement = {
+			title: 'Title',
+			address: [0,0,0]
+		};
 
-	// 	it('Sends data from the form to callback "onSendData" ', function() {
-	// 		Instance._onSendData(resivedElement);
-	// 		console.log(Instance.onSendData.arguments);
-	// 		// expect(Instance.onSendData).to.equal(resivedElement.title);
-	// 	});
-	// });
+		it('Sends data from the form to callback "onSendData" ', function() {
 
+			let expectedElement = null;
 
-	// TODO: callback, events
-	// maybe:
-	// http://chaijs.com/api/bdd/#method_arguments
+			let instance = new Module({
+				el: document.createElement('div'),
+				onSendData: (element, address) => {
+					expectedElement = element;
+				},
+			});
 
+			instance._onSendData(resivedElement);
+			expect(expectedElement).to.deep.equal(resivedElement);
+		});
+	});
 });
