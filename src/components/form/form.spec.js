@@ -45,4 +45,34 @@ describe("Form", function() {
 			expect(Instance).to.have.property('render').an('function');
 		});
 	});
+
+	describe("Form.update(element)", function() {
+
+		it('Sets data from the fields of the received element as form data', function() {
+			const resivedElement = {
+				title: 'Title',
+				address: [0,0,0]
+			};
+			Instance.update(resivedElement);
+			expect(Instance.targetTitle).to.equal(resivedElement.title);
+			expect(Instance.targetAddress).to.equal(resivedElement.address);
+		});
+	});
+
+	describe("Form.reset()", function() {
+
+		it('Clears out the form data', function() {
+			Instance.targetTitle = 'Title';
+			Instance.targetAddress = [];
+			Instance.reset();
+			expect(Instance.targetTitle).to.equal(null);
+			expect(Instance.targetAddress).to.equal(null);
+		});
+	});
+
+
+	// TODO: callback, events
+	// maybe:
+	// http://chaijs.com/api/bdd/#method_arguments
+
 });
