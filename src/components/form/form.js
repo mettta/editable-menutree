@@ -10,8 +10,8 @@ export class Form {
 		this.el.classList.add(this.blockName);
 		this._initEvents();
 
-		this.targetMenuTitle = null;
-		this.targetMenuAddress = null;
+		this.targetTitle = null;
+		this.targetAddress = null;
 	}
 
 	render() {
@@ -19,8 +19,8 @@ export class Form {
 	}
 
 	reset() {
-		this.targetMenuTitle = null;
-		this.targetMenuAddress = null;
+		this.targetTitle = null;
+		this.targetAddress = null;
 		this.render();
 	}
 
@@ -36,14 +36,14 @@ export class Form {
 	// private
 
 	_setTarget(element) {
-		this.targetMenuTitle = element.title;
-		this.targetMenuAddress = element.address;
+		this.targetTitle = element.title;
+		this.targetAddress = element.address;
 	}
 
 	_createForm() {
 		return `<div class="${this.blockName}__form">
 		<p>Добавить элемент ${
-			this.targetMenuTitle ? '<mark>в&nbsp;"<i>' + this.targetMenuTitle + '</i>"</mark>' : ""
+			this.targetTitle ? '<mark>в&nbsp;"<i>' + this.targetTitle + '</i>"</mark>' : ""
 		}</p>
 		<input type="text" name="name" placeholder="Название" value="" class="form-text">
 		<input type="text" name="url" placeholder="http://.." value="" class="form-text">
@@ -63,7 +63,7 @@ export class Form {
 	}
 	
 	_onSendData(el) {
-		this.onSendData(el, this.targetMenuAddress);
+		this.onSendData(el, this.targetAddress);
 		this.reset();
 	}
 }
