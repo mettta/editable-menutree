@@ -70,6 +70,28 @@ describe("Form", function() {
 		});
 	});
 
+	// describe("Form._onSendData(el)", function() {
+
+	// 	before(function() {
+	// 		Instance.targetAddress = [];
+	// 	});
+
+	// 	after(function() {
+	// 		Instance.targetAddress = null;
+	// 	});
+
+	// 	const resivedElement = {
+	// 		title: 'Title',
+	// 		address: [0,0,0]
+	// 	};
+
+	// 	it('Sends data from the form to callback "onSendData" ', function() {
+	// 		Instance._onSendData(resivedElement);
+	// 		console.log(Instance.onSendData.arguments);
+	// 		// expect(Instance.onSendData).to.equal(resivedElement.title);
+	// 	});
+	// });
+
 
 	// TODO: callback, events
 	// maybe:
