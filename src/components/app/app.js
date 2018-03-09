@@ -13,6 +13,7 @@ export class App {
 
 		const menutree = new Menutree({
 			el: document.createElement('div'),
+			template: menutreeTemplate,
 			tree: tree, 
 			onItemEvent: (element) => {
 				form.update(element);

@@ -12,7 +12,10 @@ export class Menutree {
 	}
 
 	render() {
-		this.el.innerHTML = this._createList(this._tree.getAdaptedData());
+		this.el.innerHTML = this.template({
+			blockName: "menutree",
+			data: this._tree.getAdaptedData()
+		});
 	}
 
 	addElement(el, address) {
@@ -63,44 +66,6 @@ export class Menutree {
 				});
 			}
 		});
-	}
-
-	// HTML
-
-	_createList(data) {
-		return `<ul class="${this.blockName}__section">
-		${data.map( (obj, idx) => this._createItem(obj, idx)).join('')}
-		<li class="${this.blockName}__placeholder">Ваш список пуст</li></ul>`;
-	}
-
-	_createItem(obj, idx) {
-		if (!obj.name) return;
-		const dataIdx = obj.address.join('.');
-		const urlOrTitle = obj.url ? this._createLink(obj) : this._createTitle(obj);
-		const sectionOrNil = obj.children ? this._createList(obj.children) : "";
-		const content = urlOrTitle + sectionOrNil;
-
-		const html = 
-		`<li data-idx="${dataIdx}" class="${this.blockName}__item">
-			<span class="${this.blockName}__item_del">&times;</span>
-			${content}
-		</li>`;
-
-		return html;
-	}
-
-	_createLink(obj) {
-		return `<a href="${obj.url}" class="${this.blockName}__link" target="_blank">${
-				obj.name}</a>`
-	}
-
-	_createTitle(obj) {
-		return `<span class="${this.blockName}__item_add">&plus;</span><span class="${
-				this.blockName}__title ${
-				(obj.children && obj.children.length) ? `${this.blockName}__section_title` : ""} ${
-				(obj.children && obj.children.length && obj.state == 'open') ? `${
-				this.blockName}__section_title_open` : ""}">${
-				obj.name}</span>`;
 	}
 }
 
