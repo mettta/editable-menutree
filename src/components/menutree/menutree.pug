@@ -4,6 +4,7 @@ mixin list(data)
 	ul(class= blockName + '__section')
 		each obj in data
 			+item(obj)
+		li(class= blockName + '__placeholder') Ваш список пуст
 
 mixin item(obj)
 	if obj.name
@@ -31,4 +32,3 @@ mixin title(obj)
 //- Use
 
 +list(data)
-div(class= blockName + '__placeholder') Ваш список пуст
