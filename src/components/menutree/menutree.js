@@ -12,7 +12,7 @@ export class Menutree {
 	}
 
 	render() {
-		this.el.innerHTML = this._createList(this._tree.getData());
+		this.el.innerHTML = this._createList(this._tree.getAdaptedData());
 	}
 
 	addElement(el, address) {
@@ -67,17 +67,17 @@ export class Menutree {
 
 	// HTML
 
-	_createList(data, parentIdx = "") {
+	_createList(data) {
 		return `<ul class="${this.blockName}__section">
-		${data.map( (obj, idx) => this._createItem(obj, idx, parentIdx)).join('')}
+		${data.map( (obj, idx) => this._createItem(obj, idx)).join('')}
 		<li class="${this.blockName}__placeholder">Ваш список пуст</li></ul>`;
 	}
 
-	_createItem(obj, idx, parentIdx) {
+	_createItem(obj, idx) {
 		if (!obj.name) return;
-		const dataIdx = parentIdx ? parentIdx + '.' + idx : parentIdx + idx;
+		const dataIdx = obj.address.join('.');
 		const urlOrTitle = obj.url ? this._createLink(obj) : this._createTitle(obj);
-		const sectionOrNil = obj.children ? this._createList(obj.children, dataIdx) : "";
+		const sectionOrNil = obj.children ? this._createList(obj.children) : "";
 		const content = urlOrTitle + sectionOrNil;
 
 		const html = 
