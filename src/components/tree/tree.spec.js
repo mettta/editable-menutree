@@ -44,8 +44,39 @@ describe("Tree", function() {
 
 	describe("Tree.getData()", function() {
 
+		let instance = new Module({data123});
+
 		it("Instance.getData() returns data", function() {
-			assert.equal(Instance.getData(), data);
+			expect(instance.getData().to.deep.equal(data123));
+		});
+
+	});
+
+	describe("Tree.getAdaptedData()", function() {
+
+		let instance = new Module({data123});
+
+		let data123adrs = [
+			{
+				name: 'first',
+				address: [0],
+				children: [
+					{
+						name: 'second',
+						address: [0, 0],
+						children: [
+							{
+								name: 'third',
+								address: [0, 0, 0]
+							}
+						]
+					}
+				]
+			}
+		];
+
+		it("Instance.getAdaptedData() returns data with addresses", function() {
+			expect(instance.getAdaptedData().to.deep.equal(data123adrs));
 		});
 
 	});
