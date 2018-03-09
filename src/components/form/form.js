@@ -2,8 +2,9 @@
 
 export class Form {
 
-	constructor({el, onSendData}) {
+	constructor({el, template, onSendData}) {
 		this.el = el;
+		this.template = template;
 		this.onSendData = onSendData;
 
 		this.blockName = "addItemForm";
@@ -15,7 +16,9 @@ export class Form {
 	}
 
 	render() {
-		this.el.innerHTML = this._createForm();
+		this.el.innerHTML = this.template({
+			blockname: this.blockname
+		});
 	}
 
 	reset() {
@@ -38,17 +41,6 @@ export class Form {
 	_setTarget(element) {
 		this.targetTitle = element.title;
 		this.targetAddress = element.address;
-	}
-
-	_createForm() {
-		return `<div class="${this.blockName}__form">
-		<p>Добавить элемент ${
-			this.targetTitle ? '<mark>в&nbsp;"<i>' + this.targetTitle + '</i>"</mark>' : ""
-		}</p>
-		<input type="text" name="name" placeholder="Название" value="" class="form-text">
-		<input type="text" name="url" placeholder="http://.." value="" class="form-text">
-		<button class="${this.blockName}__button ${this.blockName}__button_submit">добавить</button>
-		</div>`;
 	}
 
 	_initEvents() {

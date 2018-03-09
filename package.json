@@ -1,15 +1,20 @@
 {
-  "name": "editable Tree (looks like Menu)",
+  "name": "editable-tree",
   "version": "0.0.6",
   "description": "Редактируемое дерево",
   "main": "index.html",
-  "scripts": {},
+  "scripts": {
+    "pug": "./node_modules/.bin/pug -c --extension pug.js --watch --pretty --name-after-file src/components/**/*.pug"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mettta/editable-menutree"
+    "url": "git+git@github.com:mettta/editable-menutree"
   },
   "author": "Maryna Balioura",
   "license": "",
-  "homepage": "",
-  "devDependencies": {}
+  "homepage": "https://github.com/mettta/editable-menutree",
+  "devDependencies": {
+    "pug": "^2.0.1",
+    "pug-cli": "^1.0.0-alpha6"
+  }
 }

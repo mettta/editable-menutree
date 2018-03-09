@@ -21,6 +21,7 @@ export class App {
 
 		const form = new Form({
 			el: document.createElement('div'),
+			template: formTemplate,
 			onSendData: (element, address) => {
 				menutree.addElement(element, address);
 			},
