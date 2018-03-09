@@ -10,6 +10,21 @@ export class Tree {
 		return this._data;
 	}
 
+	getAdaptedData() {
+		this._adaptData(this._data, []);
+		return this._data;
+	}
+
+	_adaptData(data, address) {
+		let currAddress = address;
+		data.forEach( (obj, idx) => {
+			obj.address = currAddress.concat(idx);
+			if (obj.children) {
+				this._adaptData(obj.children, obj.address);
+			};
+		});
+	}
+
 	getNodeIdx(address) {
 		return (address && address.length) ? 
 		address[address.length - 1] : undefined;
