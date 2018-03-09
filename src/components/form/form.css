@@ -2,11 +2,13 @@
 	position: relative;
 	font-family: sans-serif;
 	line-height: 1.4;
-	color: #aaa;
-	background-color: #eee;
+	color: #888;
 	padding: 1.5rem;
 	margin: 0;
 	list-style: none;
+	box-shadow: rgba(0,0,0,0.2) 0 0 0;
+	transition: all 0.5s ease-out;
+	position: relative;
 }
 
 .addItemForm p {

@@ -3,8 +3,8 @@
 	position: relative;
 	line-height: 1;
 	color: #aaa;
-	background-color: #fff;
-	padding: 1rem;
+	background-color: #ddd;
+	padding: 1.5rem;
 	margin: 0 0 0.2rem 0;
 	list-style: none;
 }
@@ -21,17 +21,11 @@ li .menutree__placeholder{
 
 .menutree__item {
 	position: relative;
-	z-index: 1;
-	padding: 0.6rem 0 0.6rem 0.8rem;
-	background-color: #fff;
-	box-shadow: rgba(0,0,0,0.2) 0 0 0;
-	transition: all 0.5s ease-out;
+	padding: 0.4rem 0 0.44rem 0.6rem;
 }
 
 .menutree__item:hover {
-	z-index: 10;
-	box-shadow: rgba(0,0,0,0.2) 0 0 24px;
-	transition: all 0.5s ease-out;
+	background-color: rgba(255,255,255,0.4)
 }
 
 .menutree__item_del {
@@ -80,19 +74,15 @@ li:hover > .menutree__item_add { opacity: 1; }
 }
 
 li .menutree__section {
-	padding: 0.5rem 0 0 0.5rem;
+	padding: 0 0 0 0.5rem;
+	border-left: 1px dotted #10a3ff;
 	display: none;
 }
 
 .menutree__section_title {
 	padding-left: 1rem;
-	font-weight: 600;
+	color: #10a3ff;
 	cursor: pointer;
-	color: #222;
-}
-
-.menutree__section_title:hover {
-	color: #008cff;
 }
 
 .menutree__section_title_open {
@@ -101,11 +91,6 @@ li .menutree__section {
 
 .menutree__section_title_open + .menutree__section {
 	display: block;
-	border-left: 1px dotted #fff;
-	transition: all 0.5s ease-out;
-}
-
-li:not(:hover) .menutree__section_title_open + .menutree__section {
 	border-left: 1px dotted #ff9900;
 }
 
@@ -113,11 +98,11 @@ li:not(:hover) .menutree__section_title_open + .menutree__section {
 	content: '▶ ';
 	font-size: 60%;
 	position: absolute;
-	left: 0.5rem;
-	top: 0.8rem;
+	left: 0.33rem;
+	top: 0.6rem;
 }
 
 .menutree__section_title_open::before {
 	content: '▼ ';
-	left: 0.5rem;
+	left: 0.33rem;
 }
