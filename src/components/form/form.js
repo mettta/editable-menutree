@@ -17,7 +17,8 @@ export class Form {
 
 	render() {
 		this.el.innerHTML = this.template({
-			blockName: this.blockName
+			blockName: this.blockName,
+			targetTitle: this.targetTitle
 		});
 	}
 
