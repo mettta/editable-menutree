@@ -1,8 +1,9 @@
 'use strict';
 
 export class Menutree {
-	constructor({el, tree, onItemEvent}) {
+	constructor({el, template, tree, onItemEvent}) {
 		this.el = el;
+		this.template = template;
 		this._tree = tree;
 		this.onItemEvent = onItemEvent;
 		this.blockName = "menutree";
