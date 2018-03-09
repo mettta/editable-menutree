@@ -13,7 +13,7 @@ export class Menutree {
 
 	render() {
 		this.el.innerHTML = this.template({
-			blockName: "menutree",
+			blockName: this.blockName,
 			data: this._tree.getAdaptedData()
 		});
 	}
