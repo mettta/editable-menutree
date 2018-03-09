@@ -6,14 +6,15 @@ mixin list(data)
 			+item(obj)
 
 mixin item(obj)
-	li(class= blockName + '__item' data-idx=obj.address.join('.') )
-		span(class= blockName + '__item_del') &times;
-		if obj.url
-			+link(obj)
-		else
-			+title(obj)
-		if obj.children
-				+list(obj.children)
+	if obj.name
+		li(class= blockName + '__item' data-idx=obj.address.join('.') )
+			span(class= blockName + '__item_del') &times;
+			if obj.url
+				+link(obj)
+			else
+				+title(obj)
+			if obj.children
+					+list(obj.children)
 
 mixin link(obj)
 	a(href= obj.url class= blockName + '__link' target='_blank')= obj.name
