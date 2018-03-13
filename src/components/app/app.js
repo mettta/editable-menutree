@@ -24,6 +24,8 @@ export class App {
 			template: additemTemplate,
 			onSendData: (element, address) => {
 				this.menutree.addElement(element, address);
+				// TODO setData()
+				// this.postData(this.tree.setData());
 			},
 		});
 
@@ -43,7 +45,7 @@ export class App {
 		});
 	}
 
-	// не работает пока:
+	// не используется в песочнице:
 	postData(data) {
 		fetch(APP_ENDPOINT, {
 			method: 'POST', // or 'PUT'
