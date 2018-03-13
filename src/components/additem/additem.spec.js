@@ -22,13 +22,13 @@ describe("Additem", function() {
 			expect(instance).to.be.an('object');
 		});
 
-		it('Instance should contains _el property', function() {
-			expect(instance).to.have.property('_el');
+		it('Instance should contains el property', function() {
+			expect(instance).to.have.property('el');
 		});
 
-		it('Instance._el should be a HTML Element', function() {
-			expect(instance._el).to.be.an.instanceof(Object);
-			expect(instance._el).to.be.an.instanceof(HTMLElement);
+		it('Instance.el should be a HTML Element', function() {
+			expect(instance.el).to.be.an.instanceof(Object);
+			expect(instance.el).to.be.an.instanceof(HTMLElement);
 		});
 
 		it('Instance should contains _onSendData property', function() {

@@ -2,18 +2,19 @@
 
 export class Menutree {
 	constructor({el, template, tree, onItemEvent}) {
-		this._el = el;
+		this.el = el;
+		
 		this._template = template;
 		this._tree = tree;
 		this._onItemEvent = onItemEvent;
 
 		this._blockName = "menutree";
-		this._el.classList.add(this._blockName);
+		this.el.classList.add(this._blockName);
 		this._initEvents();
 	}
 
 	render() {
-		this._el.innerHTML = this._template({
+		this.el.innerHTML = this._template({
 			blockName: this._blockName,
 			data: this._tree.getAdaptedData()
 		});
@@ -47,7 +48,7 @@ export class Menutree {
 	}
 
 	_initEvents() {
-		this._el.addEventListener('click', () => {
+		this.el.addEventListener('click', () => {
 			let element = event.target;
 
 			if (element.classList.contains(`${this._blockName}__section_title`)) {

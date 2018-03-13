@@ -3,12 +3,13 @@
 export class Additem {
 
 	constructor({el, template, onSendData}) {
-		this._el = el;
+		this.el = el;
+
 		this._template = template;
 		this._onSendData = onSendData;
 
 		this._blockName = "additem";
-		this._el.classList.add(this._blockName);
+		this.el.classList.add(this._blockName);
 		this._initEvents();
 
 		this._targetTitle = null;
@@ -16,7 +17,7 @@ export class Additem {
 	}
 
 	render() {
-		this._el.innerHTML = this._template({
+		this.el.innerHTML = this._template({
 			blockName: this._blockName,
 			targetTitle: this._targetTitle
 		});
@@ -45,7 +46,7 @@ export class Additem {
 	}
 
 	_initEvents() {
-		this._el.addEventListener('click', () => {
+		this.el.addEventListener('click', () => {
 			if (!event.target.classList.contains(`${this._blockName}__submit`)) return;
 			const newEl = {};
 			event.target.parentNode.querySelectorAll('input').forEach(el => {
