@@ -1,6 +1,6 @@
 'use strict';
 
-export class Form {
+export class Additem {
 
 	constructor({el, template, onSendData}) {
 		this.el = el;

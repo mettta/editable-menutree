@@ -3,7 +3,7 @@
 const assert = chai.assert;
 const expect = chai.expect;
 
-import {Form as Module} from './form.js';
+import {Additem as Module} from './additem.js';
 
 let Instance = new Module({
 	el: document.createElement('div'),
@@ -13,10 +13,10 @@ let Instance = new Module({
 	},
 });
 
-describe("Form", function() {
-	describe("Form. Formal tests", function() {
+describe("Additem", function() {
+	describe("Additem. Formal tests", function() {
 
-		it('Form should be a function', function() {
+		it('Additem should be a function', function() {
 			expect(Module).to.be.an('function');
 		});
 	
@@ -46,9 +46,9 @@ describe("Form", function() {
 		});
 	});
 
-	describe("Form.update(element)", function() {
+	describe("Additem.update(element)", function() {
 
-		it('Sets data from the fields of the received element as form data', function() {
+		it('Sets data from the fields of the received element as Additem data', function() {
 			const resivedElement = {
 				title: 'Title',
 				address: [0,0,0]
@@ -59,9 +59,9 @@ describe("Form", function() {
 		});
 	});
 
-	describe("Form.reset()", function() {
+	describe("Additem.reset()", function() {
 
-		it('Clears out the form data', function() {
+		it('Clears out the Additem data', function() {
 			Instance.targetTitle = 'Title';
 			Instance.targetAddress = [];
 			Instance.reset();
@@ -70,7 +70,7 @@ describe("Form", function() {
 		});
 	});
 
-	describe("Form._onSendData(el)", function() {
+	describe("Additem._onSendData(el)", function() {
 
 		before(function() {
 			Instance.targetAddress = [];
@@ -85,7 +85,7 @@ describe("Form", function() {
 			address: [0,0,0]
 		};
 
-		it('Sends data from the form to callback "onSendData" ', function() {
+		it('Sends data from the Additem to callback "onSendData" ', function() {
 
 			let expectedElement = null;
 

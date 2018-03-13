@@ -1,6 +1,6 @@
 import {Tree} from './../tree/tree.js';
 import {Menutree} from './../menutree/menutree.js';
-import {Form} from './../form/form.js';
+import {Additem} from './../additem/additem.js';
 
 export class App {
 	constructor({data, el}) {
@@ -20,9 +20,9 @@ export class App {
 			}
 		});
 
-		const form = new Form({
+		const form = new Additem({
 			el: document.createElement('div'),
-			template: formTemplate,
+			template: additemTemplate,
 			onSendData: (element, address) => {
 				menutree.addElement(element, address);
 			},
