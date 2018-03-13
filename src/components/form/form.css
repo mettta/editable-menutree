@@ -1,4 +1,4 @@
-.addItemForm {
+.additem {
 	position: relative;
 	font-family: sans-serif;
 	line-height: 1.4;
@@ -11,7 +11,7 @@
 	position: relative;
 }
 
-.addItemForm p {
+.additem p {
 	margin: 0 0 1rem 0;
 	line-height: 1;
 	font-weight: normal;
@@ -19,25 +19,25 @@
 	color: #444;
 }
 
-.addItemForm mark {
+.additem mark {
 	padding: 0 0.2rem;
 }
 
-.addItemForm input {
+.additem input {
 	width: 96%;
 }
 
-li .addItemForm {
+li .additem {
 	float: right;
 	opacity: 0;
 	transition: all 0.3s ease-out;
 }
 
-li:hover .addItemForm {
+li:hover .additem {
 	opacity: 1;
 }
 
-.addItemForm__button {
+.additem__submit {
 	padding: 0.1rem 0.3rem 0.2rem;
 	cursor: pointer;
 }

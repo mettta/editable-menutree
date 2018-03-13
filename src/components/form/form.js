@@ -7,7 +7,7 @@ export class Form {
 		this.template = template;
 		this.onSendData = onSendData;
 
-		this.blockName = "addItemForm";
+		this.blockName = "additem";
 		this.el.classList.add(this.blockName);
 		this._initEvents();
 
@@ -46,7 +46,7 @@ export class Form {
 
 	_initEvents() {
 		this.el.addEventListener('click', () => {
-			if (!event.target.classList.contains(`${this.blockName}__button_submit`)) return;
+			if (!event.target.classList.contains(`${this.blockName}__submit`)) return;
 			const newEl = {};
 			event.target.parentNode.querySelectorAll('input').forEach(el => {
 			  newEl[el.name] = el.value;
