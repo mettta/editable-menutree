@@ -28,7 +28,7 @@ export class App {
 			},
 		});
 
-		this.el.append(menutree.el, form.el);
+		this.el.append(menutree._el, form._el);
 		menutree.render();
 		form.render();
 	}

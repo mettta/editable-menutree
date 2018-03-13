@@ -2,18 +2,19 @@
 
 export class Menutree {
 	constructor({el, template, tree, onItemEvent}) {
-		this.el = el;
-		this.template = template;
+		this._el = el;
+		this._template = template;
 		this._tree = tree;
-		this.onItemEvent = onItemEvent;
-		this.blockName = "menutree";
-		this.el.classList.add(this.blockName);
+		this._onItemEvent = onItemEvent;
+
+		this._blockName = "menutree";
+		this._el.classList.add(this._blockName);
 		this._initEvents();
 	}
 
 	render() {
-		this.el.innerHTML = this.template({
-			blockName: this.blockName,
+		this._el.innerHTML = this._template({
+			blockName: this._blockName,
 			data: this._tree.getAdaptedData()
 		});
 	}
@@ -39,29 +40,28 @@ export class Menutree {
 	}
 
 	_toggleOpenStatus(el) {
-		el.classList.toggle(`${this.blockName}__section_title_open`);
+		el.classList.toggle(`${this._blockName}__section_title_open`);
 		let node = this._tree.getNode(this._getElementAddress(el));
-		// TODO: -------------- проверка на ноду
 		let state = node.state;
 		node.state = state ? '' : 'open';
 	}
 
 	_initEvents() {
-		this.el.addEventListener('click', () => {
+		this._el.addEventListener('click', () => {
 			let element = event.target;
 
-			if (element.classList.contains(`${this.blockName}__section_title`)) {
+			if (element.classList.contains(`${this._blockName}__section_title`)) {
 				this._toggleOpenStatus(element);
 			}
 
-			if (element.classList.contains(`${this.blockName}__item_del`)) {
+			if (element.classList.contains(`${this._blockName}__item_del`)) {
 				this.removeElement(element);
-				this.onItemEvent(null);
+				this._onItemEvent(null);
 			}
 
-			if (element.classList.contains(`${this.blockName}__item_add`)) {
-				this.onItemEvent({
-				title: element.parentNode.querySelector(`.${this.blockName}__title`).textContent,
+			if (element.classList.contains(`${this._blockName}__item_add`)) {
+				this._onItemEvent({
+				title: element.parentNode.querySelector(`.${this._blockName}__title`).textContent,
 				address: this._getElementAddress(element)
 				});
 			}

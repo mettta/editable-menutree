@@ -22,21 +22,21 @@ describe("Additem", function() {
 			expect(instance).to.be.an('object');
 		});
 
-		it('Instance should contains el property', function() {
-			expect(instance).to.have.property('el');
+		it('Instance should contains _el property', function() {
+			expect(instance).to.have.property('_el');
 		});
 
-		it('Instance.el should be a HTML Element', function() {
-			expect(instance.el).to.be.an.instanceof(Object);
-			expect(instance.el).to.be.an.instanceof(HTMLElement);
+		it('Instance._el should be a HTML Element', function() {
+			expect(instance._el).to.be.an.instanceof(Object);
+			expect(instance._el).to.be.an.instanceof(HTMLElement);
 		});
 
-		it('Instance should contains onSendData property', function() {
-			expect(instance).to.have.property('onSendData');
+		it('Instance should contains _onSendData property', function() {
+			expect(instance).to.have.property('_onSendData');
 		});
 
-		it('Instance.onSendData should be a function', function() {
-			expect(instance.onSendData).to.be.an('function');
+		it('Instance._onSendData should be a function', function() {
+			expect(instance._onSendData).to.be.an('function');
 		});
 
 		it('Instance should contains render() function', function() {
@@ -54,8 +54,8 @@ describe("Additem", function() {
 				address: [0,0,0]
 			};
 			instance.update(resivedElement);
-			expect(instance.targetTitle).to.equal(resivedElement.title);
-			expect(instance.targetAddress).to.equal(resivedElement.address);
+			expect(instance._targetTitle).to.equal(resivedElement.title);
+			expect(instance._targetAddress).to.equal(resivedElement.address);
 		});
 	});
 
@@ -64,11 +64,11 @@ describe("Additem", function() {
 		let instance = new Module({el: _el, template: _template, onSendData: _onSendData});
 
 		it('Clears out the Additem data', function() {
-			instance.targetTitle = 'Title';
-			instance.targetAddress = [];
+			instance._targetTitle = 'Title';
+			instance._targetAddress = [];
 			instance.reset();
-			expect(instance.targetTitle).to.equal(null);
-			expect(instance.targetAddress).to.equal(null);
+			expect(instance._targetTitle).to.equal(null);
+			expect(instance._targetAddress).to.equal(null);
 		});
 	});
 

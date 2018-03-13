@@ -3,28 +3,28 @@
 export class Additem {
 
 	constructor({el, template, onSendData}) {
-		this.el = el;
-		this.template = template;
-		this.onSendData = onSendData;
+		this._el = el;
+		this._template = template;
+		this._onSendData = onSendData;
 
-		this.blockName = "additem";
-		this.el.classList.add(this.blockName);
+		this._blockName = "additem";
+		this._el.classList.add(this._blockName);
 		this._initEvents();
 
-		this.targetTitle = null;
-		this.targetAddress = null;
+		this._targetTitle = null;
+		this._targetAddress = null;
 	}
 
 	render() {
-		this.el.innerHTML = this.template({
-			blockName: this.blockName,
-			targetTitle: this.targetTitle
+		this._el.innerHTML = this._template({
+			blockName: this._blockName,
+			targetTitle: this._targetTitle
 		});
 	}
 
 	reset() {
-		this.targetTitle = null;
-		this.targetAddress = null;
+		this._targetTitle = null;
+		this._targetAddress = null;
 		this.render();
 	}
 
@@ -40,23 +40,23 @@ export class Additem {
 	// private
 
 	_setTarget(element) {
-		this.targetTitle = element.title;
-		this.targetAddress = element.address;
+		this._targetTitle = element.title;
+		this._targetAddress = element.address;
 	}
 
 	_initEvents() {
-		this.el.addEventListener('click', () => {
-			if (!event.target.classList.contains(`${this.blockName}__submit`)) return;
+		this._el.addEventListener('click', () => {
+			if (!event.target.classList.contains(`${this._blockName}__submit`)) return;
 			const newEl = {};
 			event.target.parentNode.querySelectorAll('input').forEach(el => {
 			  newEl[el.name] = el.value;
 			});
-			this._onSendData(newEl);
+			this._sendData(newEl);
 		});
 	}
 	
-	_onSendData(el) {
-		this.onSendData(el, this.targetAddress);
+	_sendData(el) {
+		this._onSendData(el, this._targetAddress);
 		this.reset();
 	}
 }
