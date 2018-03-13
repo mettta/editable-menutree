@@ -1,0 +1,89 @@
+{
+	"tree": [
+		{
+			"name": "Сладости",
+			"state": "open",
+			"children": [
+				{
+					"name": "Пирог",
+					"url": "https://learn.javascript.ru/task/sliding-menu"
+				},
+				{
+					"name":"Пончик",
+					"url": "https://learn.javascript.ru/task/sliding-menu"
+				},
+				{
+					"name": "Мед",
+					"url": "https://learn.javascript.ru/task/sliding-menu"
+				},
+				{
+					"name": "Конфетки",
+					"state": "",
+					"children": [
+						{
+							"name": "Батончик",
+							"url": "https://learn.javascript.ru/task/sliding-menu"
+						},
+						{
+							"name": "Турончик",
+							"url": "https://learn.javascript.ru/task/sliding-menu"
+						},
+						{
+							"name": "Мишка на Севере",
+							"url":"https://learn.javascript.ru/task/sliding-menu"
+						},
+						{
+							"name": "Конфетки",
+							"state": "",
+							"children": [
+								{
+									"name": "Батончик",
+									"url": "https://learn.javascript.ru/task/sliding-menu"
+								},
+								{
+									"name": "Турончик",
+									"url": "https://learn.javascript.ru/task/sliding-menu"
+								},
+								{
+									"name": "Мишка на Севере",
+									"url":"https://learn.javascript.ru/task/sliding-menu"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Без вложений",
+					"url": "#####"
+				}
+			]
+		},
+		{
+			"name": "Солености",
+			"children": [
+				{
+					"name": "Огурчик",
+					"url": "https://learn.javascript.ru/task/sliding-menu"
+				},
+				{
+					"name": "Помидорчик",
+					"url": "https://learn.javascript.ru/task/sliding-menu"
+				},
+				{
+					"name": "Перчик",
+					"url": "https://learn.javascript.ru/task/sliding-menu"
+				}
+			]
+		},
+		{
+			"name": "Квашеный арбуз",
+			"url":"https://learn.javascript.ru/task/sliding-menu"
+		},
+		{
+			"name": "Выпивка"
+		},
+		{
+			"name": "Закуска", "url": ""
+		}
+	]
+}
