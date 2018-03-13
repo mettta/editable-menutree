@@ -15,105 +15,10 @@
 	<h1>Редактируемый список<br>в виде дерева</h1>
 	<div class="js-app"></div>
 
-	<script>
-		const MENU_ITEMS = [
-			{
-				name: 'Сладости',
-				state: 'open',
-				children: [
-					{
-						name: "Пирог",
-						url: "https://learn.javascript.ru/task/sliding-menu"
-					},
-					{
-						name:"Пончик",
-						url: "https://learn.javascript.ru/task/sliding-menu"
-					},
-					{
-						name: "Мед",
-						url: "https://learn.javascript.ru/task/sliding-menu"
-					},
-					{
-						name: "Конфетки",
-						state: '',
-						children: [
-							{
-								name: "Батончик",
-								url: "https://learn.javascript.ru/task/sliding-menu"
-							},
-							{
-								name: "Турончик",
-								url: "https://learn.javascript.ru/task/sliding-menu"
-							},
-							{
-								name: "Мишка на Севере",
-								url:"https://learn.javascript.ru/task/sliding-menu"
-							},
-							{
-								name: "Конфетки",
-								state: '',
-								children: [
-									{
-										name: "Батончик",
-										url: "https://learn.javascript.ru/task/sliding-menu"
-									},
-									{
-										name: "Турончик",
-										url: "https://learn.javascript.ru/task/sliding-menu"
-									},
-									{
-										name: "Мишка на Севере",
-										url:"https://learn.javascript.ru/task/sliding-menu"
-									}
-								]
-							}
-						]
-					},
-					{
-						name: "Без вложений",
-						url: "#####"
-					}
-				]
-			},
-			{
-				name: 'Солености',
-				children: [
-					{
-						name: "Огурчик",
-						url: "https://learn.javascript.ru/task/sliding-menu"
-					},
-					{
-						name: "Помидорчик",
-						url: "https://learn.javascript.ru/task/sliding-menu"
-					},
-					{
-						name: "Перчик",
-						url: "https://learn.javascript.ru/task/sliding-menu"
-					}
-				]
-			},
-			{
-				name: "Квашеный арбуз",
-				url:"https://learn.javascript.ru/task/sliding-menu"
-			},
-			{
-				name: "Выпивка"
-			},
-			{
-				name: "Закуска", url: ""
-			},
-			{
-				name: ""
-			},
-			{}
-		];
-	</script>
-
 	<script type="module">
 		import {App} from './src/components/app/app.js';
 
 		new App({
-			data: MENU_ITEMS,
 			el: document.querySelector('.js-app')
 		});
 	</script>
@@ -121,16 +26,16 @@
 
 <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
 <script>
-// Initialize Firebase
-var config = {
-	apiKey: "AIzaSyCiMIgAcsclvXqXrePvIs2GSbF3M8vZheU",
-	authDomain: "simple-chat-ff0c4.firebaseapp.com",
-	databaseURL: "https://simple-chat-ff0c4.firebaseio.com",
-	projectId: "simple-chat-ff0c4",
-	storageBucket: "simple-chat-ff0c4.appspot.com",
-	messagingSenderId: "276498578003"
-};
-firebase.initializeApp(config);
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyA6MrUgAlk-MI9ALoS0wDrBGihokS1J-EQ",
+    authDomain: "editable-tree.firebaseapp.com",
+    databaseURL: "https://editable-tree.firebaseio.com",
+    projectId: "editable-tree",
+    storageBucket: "",
+    messagingSenderId: "1087544042407"
+  };
+  firebase.initializeApp(config);
 </script>
 </body>
 </html>

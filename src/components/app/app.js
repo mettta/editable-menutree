@@ -5,42 +5,41 @@ import {Additem} from './../additem/additem.js';
 const APP_ENDPOINT = '_data/data.json';
 
 export class App {
-	constructor({data, el}) {
-		this.data = data;
+	constructor({el}) {
 		this.el = el;
 
-		const tree = new Tree({
-			data: this.data
-		});
+		this.tree = new Tree();
 
-		const menutree = new Menutree({
+		this.menutree = new Menutree({
 			el: document.createElement('div'),
 			template: menutreeTemplate,
-			tree: tree, 
+			tree: this.tree, 
 			onItemEvent: (element) => {
-				form.update(element);
+				this.form.update(element);
 			}
 		});
 
-		const form = new Additem({
+		this.form = new Additem({
 			el: document.createElement('div'),
 			template: additemTemplate,
 			onSendData: (element, address) => {
-				menutree.addElement(element, address);
+				this.menutree.addElement(element, address);
 			},
 		});
 
-		this.el.append(menutree.el, form.el);
+		this.el.append(this.menutree.el, this.form.el);
+		this.menutree.render();
+		this.form.render();
+
 		this.fetchData();
-		menutree.render();
-		form.render();
 	}
 
 	fetchData() {
 		fetch(APP_ENDPOINT).
 		then((res) => res.json()).
-		then((data) => {
-			this.data = data;
+		then(({tree}) => {
+			this.tree.data = tree;
+			this.menutree.render();
 		});
 	}
 

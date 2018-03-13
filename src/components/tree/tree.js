@@ -2,17 +2,17 @@
 
 export class Tree {
 
-	constructor({data}) {
-		this._data = data;
+	constructor(data = []) {
+		this.data = data;
 	}
 
 	getData() {
-		return this._data;
+		return this.data;
 	}
 
 	getAdaptedData() {
-		this._adaptData(this._data, []);
-		return this._data;
+		this._adaptData(this.data, []);
+		return this.data;
 	}
 
 	_adaptData(data, address) {
@@ -36,7 +36,7 @@ export class Tree {
 	}
 
 	getParentNode(address) {
-		let parentNode = this._data;
+		let parentNode = this.data;
 		if (address) {
 			for(let i = 0; i < address.length - 1; i++) {
 				parentNode = parentNode[+address[i]].children;
@@ -47,14 +47,14 @@ export class Tree {
 
 	getChildren(address) {
 		return (address && address.length) ? 
-		this.getNode(address).children : this._data;
+		this.getNode(address).children : this.data;
 	}
 
 	addNode(el, address) {
 		if(!el || !el.name) { return; }
 
 		if(!address) { 
-			this._data.push(el);
+			this.data.push(el);
 			return;
 		}
 
