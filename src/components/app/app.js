@@ -2,7 +2,7 @@ import {Tree} from './../tree/tree.js';
 import {Menutree} from './../menutree/menutree.js';
 import {Additem} from './../additem/additem.js';
 
-const APP_ENDPOINT = '_data/data.json';
+export const APP_ENDPOINT = '_data/data.json';
 
 export class App {
 	constructor({el}) {

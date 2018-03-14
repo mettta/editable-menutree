@@ -10,32 +10,20 @@
 	<link rel="stylesheet" href="src/components/menutree/menutree.css">
 	<script src="src/components/additem/additem.pug.js"></script>
 	<script src="src/components/menutree/menutree.pug.js"></script>
+
+	
+
+	<!-- <link rel='stylesheet' href='dist/style.css'>
+	<script type="text/javascript" src="dist/bundle.js"></script> -->
 </head>
 <body>
 	<h1>Редактируемый список<br>в виде дерева</h1>
 	<div class="js-app"></div>
-
-	<script type="module">
-		import {App} from './src/components/app/app.js';
-
-		new App({
-			el: document.querySelector('.js-app')
-		});
-	</script>
+	<script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+	<script type="module" type="text/javascript" src="src/main.js"></script>
 
 
-<script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyA6MrUgAlk-MI9ALoS0wDrBGihokS1J-EQ",
-    authDomain: "editable-tree.firebaseapp.com",
-    databaseURL: "https://editable-tree.firebaseio.com",
-    projectId: "editable-tree",
-    storageBucket: "",
-    messagingSenderId: "1087544042407"
-  };
-  firebase.initializeApp(config);
-</script>
+
+
 </body>
 </html>
