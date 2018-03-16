@@ -1,10 +1,12 @@
 'use strict';
 
+import './menutree.css';
+import componentTemplate from './menutree.pug';
+
 export class Menutree {
-	constructor({el, template, tree, onItemEvent}) {
+	constructor({el, tree, onItemEvent}) {
 		this.el = el;
-		
-		this._template = template;
+
 		this._tree = tree;
 		this._onItemEvent = onItemEvent;
 
@@ -14,7 +16,7 @@ export class Menutree {
 	}
 
 	render() {
-		this.el.innerHTML = this._template({
+		this.el.innerHTML = componentTemplate({
 			blockName: this._blockName,
 			data: this._tree.getAdaptedData()
 		});
@@ -22,6 +24,7 @@ export class Menutree {
 
 	addElement(el, address) {
 		this._addElementToTree(el, address);
+		console.log(address);
 		this.render();
 	}
 

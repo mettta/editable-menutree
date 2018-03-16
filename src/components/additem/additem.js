@@ -1,11 +1,13 @@
 'use strict';
 
+import './additem.css';
+import componentTemplate from './additem.pug';
+
 export class Additem {
 
-	constructor({el, template, onSendData}) {
+	constructor({el, onSendData}) {
 		this.el = el;
 
-		this._template = template;
 		this._onSendData = onSendData;
 
 		this._blockName = "additem";
@@ -17,7 +19,7 @@ export class Additem {
 	}
 
 	render() {
-		this.el.innerHTML = this._template({
+		this.el.innerHTML = componentTemplate({
 			blockName: this._blockName,
 			targetTitle: this._targetTitle
 		});

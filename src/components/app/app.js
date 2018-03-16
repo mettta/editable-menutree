@@ -12,7 +12,6 @@ export class App {
 
 		this.menutree = new Menutree({
 			el: document.createElement('div'),
-			template: menutreeTemplate,
 			tree: this.tree, 
 			onItemEvent: (element) => {
 				this.form.update(element);
@@ -21,7 +20,6 @@ export class App {
 
 		this.form = new Additem({
 			el: document.createElement('div'),
-			template: additemTemplate,
 			onSendData: (element, address) => {
 				this.menutree.addElement(element, address);
 				// TODO setData()
