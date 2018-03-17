@@ -4,7 +4,10 @@ import './main.css';
 
 const el = document.createElement('div');
 el.classList.add('js-app');
-document.body.append(el);
+
+window.onload = function() {
+	document.body.append(el);
+}
 
 new App({
 	el: el
@@ -26,4 +29,5 @@ let TESTDATA = firebase.database().ref();
 TESTDATA.on("value", (snapshot) => {
 	console.log(snapshot.val());
 })
+
 

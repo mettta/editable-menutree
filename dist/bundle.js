@@ -336,7 +336,10 @@ __webpack_require__(11);
 
 var el = document.createElement('div');
 el.classList.add('js-app');
-document.body.append(el);
+
+window.onload = function () {
+	document.body.append(el);
+};
 
 new _app.App({
 	el: el
